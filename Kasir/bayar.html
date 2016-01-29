@@ -55,7 +55,6 @@ th {
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
         <li><a href="index.html">Pembayaran</a></li>
-        <li><a href="#section3">Logout</a></li>
 
       </ul><br>
       <div class="input-group">
@@ -67,56 +66,60 @@ th {
       <h4><small>KASIR</small></h4>
 
       <div class="container">
-  <h2>Daftar Pembayaran Resto Broto</h2>
+  <h2>Detail Pembayaran Resto Broto</h2>
   <table class="">
     <thead>
       <tr>
-        <th>Meja<th>
+        <th>Meja</th>
         <th>Nama Menu</th>
         <th>Jumlah</th>
         <th>Harga</th>
+        <th>Total</th>
+        <th></th>
 
       </tr>
     </thead>
 
     <tbody>
       <tr class="success">
-        <td>ME</td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-
+        <td>Meja-2</td>
+        <td>Ayam rica-rica</td>
+        <td>1</td>
+        <td>15000</td>
+        <td>15000</td>
+        <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Bayar</button></td>
       </tr>
-      <tr class="danger">
-        <td>ME</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
 
-      </tr>
-      <tr class="info">
-        <td>ME</td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-
-      </tr>
-      <tr class="warning">
-        <td>ME</td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-      </tr>
-      <tr class="primary">
-        <td>ME</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="exampleModalLabel">Pembayaran</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Total :</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Uang :</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Kembalian :</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     </tbody>
