@@ -23,11 +23,14 @@ DROP TABLE IF EXISTS `t_bahanbaku`;
 CREATE TABLE `t_bahanbaku` (
   `id_bahan` varchar(4) NOT NULL,
   `nama_bahan` varchar(20) DEFAULT NULL,
-  `stok` int(20) DEFAULT NULL,
+  `stok` int(4) DEFAULT NULL,
+  `stok_min` int(4) DEFAULT NULL,
   PRIMARY KEY (`id_bahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_bahanbaku` */
+
+insert  into `t_bahanbaku`(`id_bahan`,`nama_bahan`,`stok`,`stok_min`) values ('B13','Daun Bawang',11,4);
 
 /*Table structure for table `t_detail_kuisioner` */
 
@@ -50,13 +53,19 @@ CREATE TABLE `t_detail_kuisioner` (
 DROP TABLE IF EXISTS `t_detail_meja`;
 
 CREATE TABLE `t_detail_meja` (
+  `id_meja_pelanggan` int(5) NOT NULL,
   `id_pelanggan` varchar(20) DEFAULT NULL,
-  `no_meja` varchar(20) DEFAULT NULL,
+  `no_meja` int(3) DEFAULT NULL,
+  PRIMARY KEY (`id_meja_pelanggan`),
   KEY `id_pelanggan` (`id_pelanggan`),
-  CONSTRAINT `t_detail_meja_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `t_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `no_meja` (`no_meja`),
+  CONSTRAINT `t_detail_meja_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `t_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `t_detail_meja_ibfk_2` FOREIGN KEY (`no_meja`) REFERENCES `t_meja` (`no_meja`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_detail_meja` */
+
+insert  into `t_detail_meja`(`id_meja_pelanggan`,`id_pelanggan`,`no_meja`) values (56,'1',1);
 
 /*Table structure for table `t_detail_pesanan` */
 
@@ -103,13 +112,15 @@ CREATE TABLE `t_login` (
 DROP TABLE IF EXISTS `t_meja`;
 
 CREATE TABLE `t_meja` (
-  `no_meja` int(11) NOT NULL,
-  `status` tinyint(1) DEFAULT NULL,
+  `no_meja` int(3) NOT NULL AUTO_INCREMENT,
+  `status` enum('Kosong','Ada') DEFAULT NULL,
   `max_org` int(11) DEFAULT NULL,
   PRIMARY KEY (`no_meja`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_meja` */
+
+insert  into `t_meja`(`no_meja`,`status`,`max_org`) values (1,'',0),(2,'',0),(3,'',0),(4,'Kosong',13),(5,'Kosong',12);
 
 /*Table structure for table `t_menu` */
 
@@ -129,18 +140,20 @@ CREATE TABLE `t_menu` (
 DROP TABLE IF EXISTS `t_pegawai`;
 
 CREATE TABLE `t_pegawai` (
-  `id_pegawai` int(10) unsigned zerofill NOT NULL,
-  `nama` varchar(20) DEFAULT NULL,
-  `alamat` varchar(20) DEFAULT NULL,
-  `no_telp` decimal(10,0) DEFAULT NULL,
+  `id_pegawai` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `nama_pegawai` varchar(20) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `no_telp` varchar(30) DEFAULT NULL,
   `pekerjaan` varchar(20) DEFAULT NULL,
-  `username` varchar(20) DEFAULT NULL,
+  `username` varchar(20) NOT NULL,
   `email` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL,
+  `password` varchar(20) NOT NULL,
   PRIMARY KEY (`id_pegawai`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_pegawai` */
+
+insert  into `t_pegawai`(`id_pegawai`,`nama_pegawai`,`alamat`,`no_telp`,`pekerjaan`,`username`,`email`,`password`) values (001,'aris','Dago Pojok','2147483647','Admin','aris','pratam943@gmail.com','aris'),(003,'adsd','swdawdaw','0','adwadawdaf','wdawda','dawdada','wdawdawda'),(004,'opik','dago pojok','','Pelayan','asasasa','asasasa','asasasasa'),(005,'opik','dago pojok','','Pelayan','asasasa','asasasa','asasasasa'),(006,'opik','dago pojok','','Pelayan','asasasa','asasasa','asasasasa'),(007,'opik','dago pojok','','Pelayan','asasasa','asasasa','asasasasa'),(008,'opik','dago pojok','','Pelayan','asasasa','asasasa','asasasasa'),(009,'','','','','','',''),(010,'','','','','','',''),(011,'awdd','wdawd','adawdwdwa','adwadwadw','awdawdwa','wdawdaw','wdawdwad'),(012,'awdwd','wdawd','wdawd','wddaw','wddw','wadawd','wdada'),(013,'','','','','','',''),(014,'awdawdwtuytu','wadwad','awdwad','awdggr','ukiyuiuy','yjtyjyt','tutyuyt'),(015,'jhjh','hhgg','jjh','hhh','hgyy','hhhg','gyg');
 
 /*Table structure for table `t_pelanggan` */
 
@@ -155,18 +168,26 @@ CREATE TABLE `t_pelanggan` (
 
 /*Data for the table `t_pelanggan` */
 
+insert  into `t_pelanggan`(`id_pelanggan`,`nama_pelanggan`,`jml_org`) values ('1','nana',5);
+
 /*Table structure for table `t_pembayaran` */
 
 DROP TABLE IF EXISTS `t_pembayaran`;
 
 CREATE TABLE `t_pembayaran` (
-  `id_pembayaran` varchar(20) NOT NULL,
+  `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT,
   `diskon` double DEFAULT NULL,
   `total` double DEFAULT NULL,
-  PRIMARY KEY (`id_pembayaran`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `no_pesanan` varchar(20) DEFAULT NULL,
+  `status` enum('Belum Bayar','Bayar') DEFAULT NULL,
+  PRIMARY KEY (`id_pembayaran`),
+  KEY `no_pesanan` (`no_pesanan`),
+  CONSTRAINT `t_pembayaran_ibfk_1` FOREIGN KEY (`no_pesanan`) REFERENCES `t_pesanan` (`no_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_pembayaran` */
+
+insert  into `t_pembayaran`(`id_pembayaran`,`diskon`,`total`,`no_pesanan`,`status`) values (1,10,100000,NULL,NULL);
 
 /*Table structure for table `t_pertanyaan` */
 
@@ -187,10 +208,15 @@ DROP TABLE IF EXISTS `t_pesanan`;
 CREATE TABLE `t_pesanan` (
   `no_pesanan` varchar(20) NOT NULL,
   `waktu_submit` time DEFAULT NULL,
-  PRIMARY KEY (`no_pesanan`)
+  `id_meja_pelanggan` int(5) DEFAULT NULL,
+  PRIMARY KEY (`no_pesanan`),
+  KEY `id_meja_pelanggan` (`id_meja_pelanggan`),
+  CONSTRAINT `t_pesanan_ibfk_1` FOREIGN KEY (`id_meja_pelanggan`) REFERENCES `t_detail_meja` (`id_meja_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_pesanan` */
+
+insert  into `t_pesanan`(`no_pesanan`,`waktu_submit`,`id_meja_pelanggan`) values ('1',NULL,NULL);
 
 /*Table structure for table `t_resep` */
 

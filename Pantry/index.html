@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +45,45 @@
 
     <div class="col-sm-9">
       <h4><small>PANTRY</small></h4>
+	  <?php
+                        require("../includes/koneksi.php");
+                        $perintah = "select * from t_bahan";
+                        $hasil = mysql_query($perintah);
+
+                        ?>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID Bahan</th>
+        <th>Nama Bahan</th>
+        <th>Stok</th>
+		<th>Stok Min</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <?php
+                            $no = 0;
+                            while ($data = mysql_fetch_array($hasil)) {
+
+                                $no++;
+                                ?>
+                                <tr>
+                                    <td> <?php echo "$data[id_bahan]";?></td>
+                                    <td> <?php echo "$data[nama_bahan]";?> </td>
+                                    <td><?php echo "$data[stok]";?></td>
+									<td><?php echo "$data[stok_min]";?></td>
+									<td><a href="" class="btn btn-warning">D</a>
+										<a href="" class="btn btn-warning">E</a></td>
+                                </tr>
+                            <?php } ?>
+	
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  <a href="tambahbahan.html" class="btn btn-info">Tambah Bahan</a>
           </div>
         </div>
       </div>

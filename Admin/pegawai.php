@@ -1,3 +1,11 @@
+<?php
+include '../loginSession.php';
+
+if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
+    header("Location:../web/");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,11 +42,12 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3 sidenav">
+    <div class="col-sm-2 sidenav">
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
         <li><a href="pegawai.php">Pegawai</a></li>
         <li><a href="meja.php">Meja</a></li>
+		<li><a href="../logout.php">Logout</a></li>
 
       </ul><br>
       <div class="input-group">

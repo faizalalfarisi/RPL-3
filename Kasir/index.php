@@ -45,8 +45,8 @@ $query = mysql_query($sql);
     <div class="col-sm-3 sidenav">
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="pembayaran.html">Pembayaran</a></li>
-
+        <li><a href="index.php">Pembayaran</a></li>
+		<li><a href="index.php">Cetak Laporan</a></li>
       </ul><br>
       <div class="input-group">
 
@@ -55,6 +55,43 @@ $query = mysql_query($sql);
 
     <div class="col-sm-9">
       <h4><small>KASIR</small></h4>
+	  <div class="container">
+  <h2>Pembayaran</h2>
+<?php
+                        require("../includes/koneksi.php");
+                        $perintah = "select * from t_pembayaran";
+                        $hasil = mysql_query($perintah);
+
+                        ?>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No Meja</th>
+        <th>Nama Pelanggan</th>
+        <th>Total Bayar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <?php
+                            $no = 0;
+                            while ($data = mysql_fetch_array($hasil)) {
+
+                                $no++;
+                                ?>
+                                <tr>
+                                    <td> <?php echo "$data[no_meja]";?></td>
+                                    <td> <?php echo "$data[nama_pelanggan]";?> </td>
+                                    <td><?php echo "$data[status]";?></td>
+									<td><a href="" class="btn btn-danger">Hitung</a></td>
+                                </tr>
+                            <?php } ?>
+	
+        
+      </tr>
+      
+    </tbody>
+  </table>
           </div>
         </div>
       </div>

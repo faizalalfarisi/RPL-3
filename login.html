@@ -1,12 +1,5 @@
-<?php
-include 'loginSession.php';
-
-if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
-    header("Location:../web/");
-}
-
-?>
 <html>
+
   <head>
       <title> Login Resto Broto </title>
 
@@ -31,11 +24,11 @@ if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
             <p align="center"><b> Broto Azhari </b></p>
             <img id="profile-img" class="profile-img-card" src="chef.jpg" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action="" method="POST">
+            <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="inputText" class="form-control" placeholder="ID Pegawai" name="username" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
+                <input type="text" id="inputText" class="form-control" placeholder="ID Pelanggan" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit"><a href="index.html">Login</a></button>
             </form><!-- /form -->
 
         </div><!-- /card-container -->

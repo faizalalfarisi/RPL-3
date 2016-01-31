@@ -25,11 +25,8 @@ if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
       height: 100%;
     }
 
-    /* Set black background color, white text and some padding */
-
-
     /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
@@ -42,11 +39,10 @@ if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-3 sidenav">
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="pegawai.php">Pegawai</a></li>
-        <li><a href="meja.php">Meja</a></li>
+        <li><a href="index.php">Bahan Baku</a></li>
 		<li><a href="../logout.php">Logout</a></li>
 
       </ul><br>
@@ -56,22 +52,20 @@ if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
     </div>
 
     <div class="col-sm-9">
-      <h4><small>MEJA</small></h4>
-
-      <div class="container">
-  <h2>Daftar Meja Resto Broto</h2>
-<?php
-                        require("config.php");
-                        $perintah = "select * from t_meja";
+      <h4><small>PANTRY</small></h4>
+	  <?php
+                        require("koneksi.php");
+                        $perintah = "select * from t_bahanbaku";
                         $hasil = mysql_query($perintah);
 
                         ?>
   <table class="table">
     <thead>
       <tr>
-        <th>No Meja</th>
-        <th>Status</th>
-        <th>Max Orang</th>
+        <th>ID Bahan</th>
+        <th>Nama Bahan</th>
+        <th>Stok</th>
+		<th>Stok Min</th>
       </tr>
     </thead>
 
@@ -79,14 +73,16 @@ if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
       <?php
                             $no = 0;
                             while ($data = mysql_fetch_array($hasil)) {
-
+							
                                 $no++;
                                 ?>
                                 <tr>
-                                    <td> <?php echo "$data[no_meja]";?></td>
-                                    <td> <?php echo "$data[status]";?> </td>
-                                    <td><?php echo "$data[max_org]";?></td>
-									<td><a href="meja_hapus.php" class="btn btn-danger">D</a></td>
+                                    <td> <?php echo "$data[id_bahan]";?></td>
+                                    <td> <?php echo "$data[nama_bahan]";?> </td>
+                                    <td><?php echo "$data[stok]";?></td>
+									<td><?php echo "$data[stok_min]";?></td>
+									<td><a href="" class="btn btn-warning">D</a>
+										<a href="" class="btn btn-warning">E</a></td>
                                 </tr>
                             <?php } ?>
 	
@@ -95,14 +91,14 @@ if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
       
     </tbody>
   </table>
-  <a href="tambahmeja.php" class="btn btn-info">Tambah Meja</a>
-</div>
+  <a href="tambahbahan.php" class="btn btn-info">Tambah Bahan</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 </body>
