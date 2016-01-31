@@ -2,7 +2,7 @@
 include '../loginSession.php';
 
 if ($__tipe_user == 'Pegawai' && $currentPath == 'login.php') {
-    header("Location:../web/");
+   // header("Location:../web/");
 }
 
 ?>
