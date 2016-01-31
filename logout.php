@@ -8,5 +8,5 @@ unset($_SESSION['my_user_agent']);
 
 session_destroy();
 setcookie(session_name(), '', time() - 3600);
-header("Location:web/../");
+//header("Location:web/../");
 ?>
