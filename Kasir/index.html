@@ -1,3 +1,16 @@
+<?php
+defined('__NOT_DIRECT') || define('__NOT_DIRECT',1);
+include '../cekAkses.php';
+include "../includes/koneksi.php";
+
+$sql = "SELECT idpembayaran, nomeja, nama_pelanggan, nama_pegawai, total, tpembayaran.status
+FROM tpembayaran JOIN tpesanan USING(idpesanan) JOIN 
+     tmejapelanggan USING(idmejapelanggan) JOIN
+     tpelanggan USING(idpelanggan),tpegawai
+WHERE tpembayaran.status = 'Belum Bayar' AND tpesanan.idpegawai = tpegawai.idpegawai";
+$query = mysql_query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

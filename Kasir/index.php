@@ -1,3 +1,14 @@
+<?php
+include "../includes/koneksi.php";
+
+$sql = "SELECT id_pembayaran, no_meja, nama_pelanggan, total
+FROM t_pembayaran JOIN t_pesanan USING(no_pesanan) JOIN 
+     t_detail_meja USING(id_meja_pelanggan) JOIN
+     t_pelanggan USING(id_pelanggan)
+WHERE t_pembayaran.status = 'Belum Bayar'";
+$query = mysql_query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,13 +45,7 @@
     <div class="col-sm-3 sidenav">
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="Admin/index.html">Admin</a></li>
-        <li><a href="Pelayan/index.html">Pelayan</a></li>
-        <li><a href="Koki/index.html">Koki</a></li>
-        <li><a href="Pantry/index.html">Pantry</a></li>
-        <li><a href="Kasir/index.html">Kasir</a></li>
-        <li><a href="Customer/index.html">Cutomer Service</a></li>
-        <li><a href="Customer/index.html">Logout</a></li>
+        <li><a href="pembayaran.html">Pembayaran</a></li>
 
       </ul><br>
       <div class="input-group">
@@ -49,7 +54,7 @@
     </div>
 
     <div class="col-sm-9">
-      <h4><small>HOME</small></h4>
+      <h4><small>KASIR</small></h4>
           </div>
         </div>
       </div>

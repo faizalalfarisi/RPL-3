@@ -35,8 +35,8 @@
     <div class="col-sm-3 sidenav">
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#section1">Pegawai</a></li>
-        <li><a href="meja.html">Meja</a></li>
+        <li><a href="pegawai.php">Pegawai</a></li>
+        <li><a href="meja.php">Meja</a></li>
 
       </ul><br>
       <div class="input-group">
@@ -47,27 +47,26 @@
     <div class="col-sm-9">
       <h4><small>Tambah Meja</small></h4>
       <div class="bs-example">
-    <form class="form-horizontal">
+    <form action="tambahmeja_proses.php" method="POST" class="form-horizontal">
         <div class="form-group">
-            <label class="control-label col-xs-3" for="telp">ID:</label>
+            <label class="control-label col-xs-3" for="meja">No Meja:</label>
             <div class="col-xs-9">
-              <input type="tel" class="form-control" id="telp" placeholder="ID Meja">
+              <input type="tel" class="form-control" name="meja" placeholder="No Meja">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-xs-3" for="Nama">Nama:</label>
+            <label class="control-label col-xs-3" for="status">Status:</label>
             <div class="col-xs-9">
-                <input type="text" class="form-control" id="Nama" placeholder="Nama Meja">
+ 				<input type="tel" class="form-control" name="status" placeholder="Status">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-xs-3">Status</label>
-            <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Kosong</option>
-                </select>
+            <label class="control-label col-xs-3">Max Orang:</label>
+            <div class="col-xs-9">
+              <input type="tel" class="form-control" name="maxorang" placeholder="Max Orang">
+            </div>
             </div>
 
         </div>
@@ -82,14 +81,6 @@
     </form>
   </div>
 
-  <div class="container">
-<div class="alert alert-success">
-<strong>Berhasil!</strong> Data Meja berhasil disimpan.
-</div>
-<div class="alert alert-danger">
-<strong>Gagal!</strong> Data Meja gagal disimpan.
-</div>
-</div>
           </div>
         </div>
       </div>

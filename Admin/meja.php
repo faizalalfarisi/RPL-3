@@ -37,8 +37,8 @@
     <div class="col-sm-3 sidenav">
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="pegawai.html">Pegawai</a></li>
-        <li><a href="">Meja</a></li>
+        <li><a href="pegawai.php">Pegawai</a></li>
+        <li><a href="meja.php">Meja</a></li>
 
       </ul><br>
       <div class="input-group">
@@ -51,53 +51,42 @@
 
       <div class="container">
   <h2>Daftar Meja Resto Broto</h2>
+<?php
+                        require("config.php");
+                        $perintah = "select * from t_meja";
+                        $hasil = mysql_query($perintah);
+
+                        ?>
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Meja</th>
+        <th>No Meja</th>
         <th>Status</th>
+        <th>Max Orang</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr class="success">
-        <td>MJ1</td>
-        <td>Meja 1</td>
-        <td>Kosong</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D </a></button><button type="button" class="btn btn-warning"> <a href="ubahmeja.html">E</a></button</td>
-      </tr>
-      <tr class="danger">
-        <td>MJ2</td>
-        <td>Meja 2</td>
-        <td>Ada</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"> <a href="ubahmeja.html">E</a></button</td>
+      <?php
+                            $no = 0;
+                            while ($data = mysql_fetch_array($hasil)) {
 
+                                $no++;
+                                ?>
+                                <tr>
+                                    <td> <?php echo "$data[no_meja]";?></td>
+                                    <td> <?php echo "$data[status]";?> </td>
+                                    <td><?php echo "$data[max_org]";?></td>
+									<td><a href="meja_hapus.php" class="btn btn-danger">D</a></td>
+                                </tr>
+                            <?php } ?>
+	
+        
       </tr>
-      <tr class="info">
-        <td>MJ3</td>
-        <td>Meja 3</td>
-        <td>Kosong</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"> <a href="ubahmeja.html">E</a></button</td>
-      </tr>
-      <tr class="warning">
-        <td>MJ4</td>
-        <td>Meja 4</td>
-        <td>Kosong</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"> <a href="ubahmeja.html">E</a></button</td>
-
-      </tr>
-      <tr class="primary">
-        <td>MJ5</td>
-        <td>Meja 5</td>
-        <td>Ada</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"><a href="ubahmeja.html">E</a></button</td>
-      </tr>
-
-
+      
     </tbody>
   </table>
-  <button type="button" class="btn btn-info"><a href="tambahmeja.html">Tambah Meja</a></button>
+  <a href="tambahmeja.php" class="btn btn-info">Tambah Meja</a>
 </div>
           </div>
         </div>

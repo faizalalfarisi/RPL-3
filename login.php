@@ -1,5 +1,9 @@
+<?php session_start();
+if(isset($_SESSION['username'])) {
+header('location:index.php'); }
+require_once("koneksi.php");
+?>
 <html>
-
   <head>
       <title> Login Resto Broto </title>
 
@@ -12,7 +16,7 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
 
-  <boyd>
+  <body>
     <!--
     you can substitue the span of reauth email for a input with the email and
     include the remember me checkbox
@@ -26,7 +30,7 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="inputText" class="form-control" placeholder="ID Pelanggan" required autofocus>
+                <input type="text" id="inputText" class="form-control" placeholder="ID Karyawan" required autofocus>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit"><a href="index.html">Login</a></button>
             </form><!-- /form -->

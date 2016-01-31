@@ -37,8 +37,8 @@
     <div class="col-sm-3 sidenav">
       <h4>Broto Azhari-Resto</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="index.html">Pegawai</a></li>
-        <li><a href="meja.html">Meja</a></li>
+        <li><a href="pegawai.php">Pegawai</a></li>
+        <li><a href="meja.php">Meja</a></li>
 
       </ul><br>
       <div class="input-group">
@@ -51,53 +51,52 @@
 
       <div class="container">
   <h2>Daftar Pegawai Resto Broto</h2>
+<?php
+                        require("config.php");
+                        $perintah = "select * from t_pegawai";
+                        $hasil = mysql_query($perintah);
+
+                        ?>
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>ID Pegawai</th>
         <th>Nama</th>
-        <th>JK</th>
+        <th>Alamat</th>
+		<th>No Telp</th>
+		<th>Pekerjaan</th>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Password</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr class="success">
-        <td>P101</td>
-        <td>Izal</td>
-        <td>Pria</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"><a href="ubahpegawai.html">E</a></button</td>
-      </tr>
-      <tr class="danger">
-        <td>P102</td>
-        <td>Akida</td>
-        <td>Pria</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"><a href="ubahpegawai.html">E</a></button</td>
+      <?php
+                            $no = 0;
+                            while ($data = mysql_fetch_array($hasil)) {
 
+                                $no++;
+                                ?>
+                                <tr>
+                                    <td> <?php echo "$data[id_pegawai]";?></td>
+                                    <td> <?php echo "$data[nama_pegawai]";?> </td>
+                                    <td><?php echo "$data[alamat]";?></td>
+									<td><?php echo "$data[no_telp]";?></td>
+									<td><?php echo "$data[pekerjaan]";?></td>
+									<td><?php echo "$data[username]";?></td>
+									<td><?php echo "$data[email]";?></td>
+									<td><?php echo "$data[password]";?></td>
+				<td><a href="pegawai_hapus.php" class="btn btn-danger">D</a><button type="button" class="btn btn-warning"><a href="ubahpegawai.html">E</a></button></td>
+                                </tr>
+                            <?php } ?>
+	
+        
       </tr>
-      <tr class="info">
-        <td>P103</td>
-        <td>Aris</td>
-        <td>Pria</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"><a href="ubahpegawai.html">E</a></button</td>
-      </tr>
-      <tr class="warning">
-        <td>P104</td>
-        <td>Sidiq</td>
-        <td>Pria</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"><a href="ubahpegawai.html">E</a></button</td>
-
-      </tr>
-      <tr class="primary">
-        <td>P105</td>
-        <td>Listia</td>
-        <td>Perempuan</td>
-        <td><button type="button" class="btn btn-danger"><a href="">D</a></button><button type="button" class="btn btn-warning"><a href="ubahpegawai.html">E</a></button</td>
-      </tr>
-
-
+      
     </tbody>
   </table>
-  <button type="button" class="btn btn-info"><a href="tambahpegawai.html">Tambah Pegawai</a></button>
+  <a href="tambahpegawai.php" class="btn btn-info">Tambah Pegawai</a>
 </div>
           </div>
         </div>
