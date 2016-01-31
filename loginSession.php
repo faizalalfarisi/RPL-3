@@ -17,7 +17,7 @@ if($_POST){
         $_SESSION['idpegawai'] = $data['id_pegawai'];
         $_SESSION['my_user_agent'] = md5($_SERVER['HTTP_USER_AGENT']);
 
-        header("Location:../web/");
+       // header("Location:../web/");
     }
     else{
         $valid = false;
