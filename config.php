@@ -4,7 +4,7 @@ if(!defined('__NOT_DIRECT')){
     die('Akses langsung tidak diizinkan!');
 }
 
-define('BASE_URL', '/web/'); 
+//define('BASE_URL', '/web/'); 
 //koneksi database
 define('DB_HOST','localhost');
 define('DB_USER','root');
