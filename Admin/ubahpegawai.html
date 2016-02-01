@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Resto Azhari</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Broto Azhari-Resto</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class=""><a href="pegawai.html">Pegawai</a></li>
+        <li><a href="#section2">Meja</a></li>
+
+      </ul><br>
+      <div class="input-group">
+
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h4><small>Edit Pegawai</small></h4>
+      <div class="bs-example">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="inputEmail">Email:</label>
+            <div class="col-xs-9">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="inputPassword">Kata Sandi:</label>
+            <div class="col-xs-9">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Masukan Kata Sandi">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="Nama">Nama:</label>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" id="Nama" placeholder="Nama Anda">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="telp">No. Telp:</label>
+            <div class="col-xs-9">
+                <input type="tel" class="form-control" id="telp" placeholder="Nomor Telepon / Handphone">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Tanggal Lahir</label>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Tanggal</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Bulan</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Tahun</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="Nama">Tempat Lahir:</label>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" id="Nama" placeholder="Tempat Lahir">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="Alamat">Alamat:</label>
+            <div class="col-xs-9">
+                <textarea rows="3" class="form-control" id="Alamat" placeholder="Masukan Alamat Lengkap"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="KodePos">Id Pegawai:</label>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" id="KodePos" placeholder="Id Pegawai">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Jenis Kelamin:</label>
+            <div class="col-xs-2">
+                <label class="radio-inline">
+                    <input type="radio" name="gender" value="Laki-laki"> Laki-laki
+                </label>
+            </div>
+            <div class="col-xs-2">
+                <label class="radio-inline">
+                    <input type="radio" name="gender" value="Perempuan"> Perempuan
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+                <input type="submit" class="btn btn-primary" value="Simpan">
+                <input type="reset" class="btn btn-default" value="Batal">
+            </div>
+        </div>
+
+        <div class="container">
+  <div class="alert alert-success">
+    <strong>Berhasil!</strong> Data Pegawai berhasil di ubah.
+  </div>
+  <div class="alert alert-danger">
+    <strong>Gagal!</strong> Data Pegawai gagal di ubah.
+  </div>
+</div>
+    </form>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
